@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car store</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body >
+    <footer>
+        <a href="./customers.html">Customers</a>
+        <a href="./employees.html">Employees</a>
+        <a href="./vehicles.html">Vehicles</a>
+        <a href="./sales.html">Sales</a>
+        <a href="./services.html">Services</a>
+        <a href="./index.html">Main Page</a>
+    </footer>
+    <h1>
+        Vehicles
+    </h1>
+    <div class="vehicle-table">
+        <h3>Vehicles</h3>
+        <table>
+            <tr>
+                <th><a href="#" onClick="additem()">New</a></th>
+                <th></th>
+                <th>vehiclesID</th>
+                <th>make</th>
+                <th>model</th>
+                <th>year</th>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.vehiclesID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.vehiclesID')">Remove</a></td>
+                <td>1</td>
+                <td >Ford</td>
+                <td>Nova</td>
+                <td>1987</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.vehiclesID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.vehiclesID')">Remove</a></td>
+                <td>2</td>
+                <td>Chystler</td>
+                <td>Town and Country</td>
+                <td>2018</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.vehiclesID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.vehiclesID')">Remove</a></td>
+                <td>3</td>
+                <td>Chevy</td>
+                <td>Caprice</td>
+                <td><em>1999</em></td>
+            </tr>
+        </table>
+        <div id="insert">
+            <form method="POST" id="addVehicle">
+                <legend><strong>Add Vehicle</strong></legend>
+                  <fieldset class="fields">
+                    <label> Make </label> <input type="text" name="make">
+                    <label> model </label> <input type="text" name="model">
+                    <label> year </label> <input name="year">
+              </fieldset>
+                  <input class="btn" type="submit" id="addVehicle" value="Add Vehicle">
+                  <input class="btn" type="button" value="cancel" onClick="exitinsert()">
+            </form> 
+        </div><!-- insert -->
+        <p>&nbsp;</p>
+        <div id="update">
+            <form method="POST" id="edititem">
+                <legend><strong>Update Vehicle</strong></legend>
+                  <fieldset class="fields">
+                  <input type="hidden" name="vehicleID" id="updatevehicleID" value="1">
+                  <label> vehiclesID: </label> <input type="text" name="vehiclesidtxt" value="1">
+                    <label> make </label> <input type="text" name="make" value="Ford">
+                    <label> model </label> <input type="text" name="model" value="F150">
+                    <label> year </label> <input name="year" value="2020">
+              </fieldset>
+            <input class="btn" type="submit" id="UpdateSaveVehicle" value="Save Update Vehicle">
+            <input class="btn" type="button" value="cancel" onClick="exitupdate()">
+            </form> 
+        </div><!-- update -->
+        <p>&nbsp;</p>
+        <div id="remove">
+          <form method="POST" id="deleteitem">
+              <legend><strong>Delete Vehicle</strong></legend>
+                  <fieldset class="fields">
+                  <p>Are you sure you wish to delete the following?</p>
+                  <input type="hidden" name="vehicleID" id="deleteitemID" value="1">
+                  <label><strong>vehiclesID:</strong></label> 1
+                    <label> <strong>Ford Nova</strong> </label>
+            </fieldset>
+            <input class="btn" type="submit" id="deleteitem" value="Delete">
+            <input class="btn" type="button" value="Cancel" onClick="exitremove()">
+          </form> 
+        </div><!-- delete -->
+    </div>
+    
+</body>
+</html>

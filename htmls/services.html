@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car store</title>
+    <script src="script.js"></script>
+    <script>
+        
+    </script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body onload="browseServices()">
+    <footer>
+        <a href="./customers.html">Customers</a>
+        <a href="./employees.html">Employees</a>
+        <a href="./vehicles.html">Vehicles</a>
+        <a href="./sales.html">Sales</a>
+        <a href="./services.html">Services</a>
+        <a href="./index.html">Main Page</a>
+
+    </footer>
+    <h1>
+        Services
+    </h1>
+    <div class="service-table" id="browse">
+        <h3>Services</h3>
+        <table>
+            <tr>
+                <th><a href="#" onClick="additem()">New</a></th>
+                <th></th>
+                <th>servicesID</th>
+                <th>vehiclesID</th>
+                <th>workOrder</th>
+                <th>serviceTime</th>
+                <th>serviceTeam</th>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.servicesID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.servicesID')">Remove</a></td>
+                <td>1</td>
+                <td >3</td>
+                <td>100</td>
+                <td>0645</td>
+                <td>JDC</td>
+
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.ServicesID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.ServicesID')">Remove</a></td>
+                <td>1</td>
+                <td >5</td>
+                <td>101</td>
+                <td>0815</td>
+                <td>JRC</td>
+
+            </tr>
+        </table>
+        <div id="insert">
+            <form method="POST" id="additem">
+                <legend><strong>Add service</strong></legend>
+                  <fieldset class="fields">
+                    <label> vehiclesID </label> <input type="text" name="vehicleID">
+                    <label> workOrder </label> <input type="text" name="workOrder">
+                    <label> serviceTeam</label> <input name="serviceTime">
+                    <label> serviceTime</label> <input name="serviceTeam">
+
+              </fieldset>
+                  <input class="btn" type="submit" id="additem" value="add Service">
+                  <input class="btn" type="button" value="cancel" onClick="exitinsert()">
+            </form> 
+        </div><!-- insert -->
+        <p>&nbsp;</p>
+        <div id="update">
+            <form method="POST" id="edititem">
+                <legend><strong>Update service</strong></legend>
+                  <fieldset class="fields">
+                  <input type="hidden" name="ServiceID" id="updateServiceID" value="1">
+                  <label> ServiceID: </label> <input type="text" name="serviceidtxt" value="1">
+                    <label> vehiclesID</label>
+                    <select name="vehiclesID" id="fk_vehicles">
+                        <option value="">Select a vehicleID</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <label> workOrder </label> <input type="text" name="w_order" value="4">
+                    <label> serviceTeam </label> <input name="s_team" value="1900">
+                    <label> serviceTime </label> <input type="text" name="s_time" value="RFC">
+
+
+              </fieldset>
+                  <input class="btn" type="submit" id="UpdateSaveService" value="Save update Service">
+                  <input class="btn" type="button" value="cancel" onClick="exitupdate()">
+            </form> 
+        </div><!-- update -->
+        <p>&nbsp;</p>
+        <div id="remove">
+          <form method="POST" id="deleteitem">
+              <legend><strong>Delete Service</strong></legend>
+                  <fieldset class="fields">
+                  <p>Are you sure you wish to delete the following?</p>
+                  <input type="hidden" name="ServiceID" id="deleteitemID" value="1">
+                  <label><strong>ServiceID:</strong></label> 2
+                    <label> <strong>100</strong> </label>
+            </fieldset>
+            <input class="btn" type="submit" id="deleteitem" value="Delete Service">
+                  <input class="btn" type="button" value="cancel" onClick="exitremove()">
+          </form> 
+        </div><!-- delete -->
+        
+    </div>
+    
+</body>
+</html>

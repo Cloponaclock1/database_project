@@ -1,0 +1,71 @@
+{{!-- Create a table --}}
+
+
+
+
+<div>
+    <h1>Vehicles</h1>
+    <table>
+
+        {{!-- Header section --}}
+        <thead>
+
+            {{!-- For just the first row, we print each key of the row object as a header cell so we
+            know what each column means when the page renders --}}
+            <tr>
+                {{#each data.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+            </tr>
+        </thead>
+
+        {{!-- Body section --}}
+        <tbody>
+
+            {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+            {{#each data}}
+            <tr>
+                <td>{{this.vehiclesID}}</td>
+                <td>{{this.make}}</td>
+                <td>{{this.model}}</td>
+                <td>{{this.year}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<div id="buttons">
+    <button onclick="additem()">Add Vehicle</button>
+</div>
+
+<div id="insert">
+{{!-- Form to add a record to the table  --}}
+<h2>Adding a Vehicle</h2>
+<p>To add a new vehicle, please enter their information below and click 'Submit'!</p>
+<form id="add-person-form-ajax">
+    <label for="input-fname">Make: </label>
+    <input type="text" name="input-make" id="input-make">
+    
+    <label for="input-lname">Model: </label>
+    <input type="text" name="input-model" id="input-model">
+
+    <label for="input-homeworld">year: </label>
+    <input type="number" name="input-year" id="input-year">
+    <input type="submit">
+</form>
+
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+<script src="./js/add_vehicle.js"></script>
+
+
+
+
+
+</div>
+
+
+
+
+<script src="/js/script.js"></script>

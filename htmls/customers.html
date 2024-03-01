@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car store</title>
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body >
+    <footer>
+        <a href="./customers.html">Customers</a>
+        <a href="./employees.html">Employees</a>
+        <a href="./vehicles.html">Vehicles</a>
+        <a href="./sales.html">Sales</a>
+        <a href="./services.html">Services</a>
+        <a href="./index.html">Main Page</a>
+
+    </footer>
+    <h1>
+        Customer
+    </h1>
+    <div class="customer-table">
+        <h3>Customers</h3>
+        <table >
+            <tr>
+                <th><a href="#" onClick="additem()">New</a></th>
+                <th></th>
+                <th>customerID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>MiddleName</th>
+                <th>age</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>address</th>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.customersID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.customersID')">Remove</a></td>
+                <td>1</td>
+                <td >John</td>
+                <td>James</td>
+                <td>Jern</td>
+                <td>45</td>
+                <td>jjames@outlook.com</td>
+                <td>445 323 4342</td>
+                <td>321 Feather Road</td>
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.customersID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.customersID')">Remove</a></td>
+                <td>2</td>
+                <td >John</td>
+                <td>Jim</td>
+                <td>Jam</td>
+                <td>41</td>
+                <td>jjim@outlook.com</td>
+                <td>445 315 4342</td>
+                <td>321 Car Road</td>
+            </tr>
+        </table>
+        <div id="insert">
+            <form method="POST" id="additem">
+                <legend><strong>Add customer</strong></legend>
+                  <fieldset class="fields">
+                    <label> CustomerID: </label> <input type= "text"name="id" value="1">
+                    <label> First Name </label> <input type="text" name="name" value="Jim">
+                    <label> Last Name </label> <input type="text" name="last" value="Jane">
+                    <label> Middle Name </label> <input name="middle" value="Jarn">
+                    <label> age </label> <input type="text" name="age" value="25">
+                    <label> email </label> <input type="text" name="email" value="jjane@outlook.com">
+                    <label> phone </label> <input type= "text"name="phone" value="883 232 2442">
+                    <label> address </label> <input type= "text"name="addr" value="821 Sparrow Lane">
+              </fieldset>
+                <input class="btn" type="submit" id="additem" value="add customer">
+                <input class="btn" type="button" value="cancel" onClick="exitinsert()">
+            </form> 
+        </div><!-- insert -->
+        <div id="update">
+            <form method="POST" id="edititem">
+                <legend><strong>update customer</strong></legend>
+                  <fieldset class="fields">
+                  <input type="hidden" name="customerID" id="updatecustomerID" value="1">
+                  <label> CustomerID: </label> <input type= "text"name="customeridtext" value="1">
+                    <label> First Name </label> <input type="text" name="f_name" value="Jim">
+                    <label> Last Name </label> <input type="text" name="l_name" value="Jane">
+                    <label> Middle Name </label> <input name="l_name" value="Jarn">
+                    <label> age </label> <input type="text" name="age" value="25">
+                    <label> email </label> <input type="text" name="email" value="jjane@outlook.com">
+                    <label> phone </label> <input type= "text"name="phone" value="883 232 2442">
+                    <label> address </label> <input type= "text"name="addr" value="821 Sparrow Lane">
+
+              </fieldset>
+                <input class="btn" type="submit" id="UpdateSaveCustomer" value="Save update customer">
+                <input class="btn" type="button" value="cancel" onClick="exitupdate()">
+            </form> 
+        </div>
+        <div id="remove" >
+          <form method="POST" id="deleteCustomer">
+              <legend><strong>Delete Customer</strong></legend>
+                  <fieldset class="fields">
+                  <p>Are you sure you wish to delete the following?</p>
+                  <input type="hidden" name="customerID" id="deleteCustomerID" value="1">
+                  <label><strong>CustomerID:</strong></label> 2
+                    <label> <strong>Jim Jam</strong> </label>
+            </fieldset>
+            <input class="btn" type="submit" id="DeleteCustomer" value="Delete Customer">
+            <input class="btn" type="button" value="cancel" onClick="exitremove()">
+          </form> 
+        </div><!-- delete -->
+
+        <div id="assign">
+            <form method="POST" id="assign_sale_to_customer">
+                <legend><strong>Assign sale to Customer</strong></legend>
+                  <fieldset class="fields">
+                    <input type="hidden" name="vehicleSaleID" id="vehicleSaleID" value="3">
+                    <label> CustomerSaleID: </label>1
+
+                    <label for="fk_vehicle"> VehicleID </label>
+                    <select name="vehiclesID" id="fk_vehicles">
+                        <option value="">Select a vehicleID</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <label for="fk_sales"> SaleID</label>
+                    <select name="vehiclesID" id="fk_vehicles">
+                        <option value="">Select a saleID</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <label> SalesPrice</label> <input type="text" name="price" value="35000">
+
+              </fieldset>
+                  <input class="btn" type="submit" id="UpdateSaveCustomerSale" value="Save Customer Sale">
+                  <input class="btn" type="button" value="cancel" onClick="exitassign()">
+            </form> 
+        </div><!-- update -->
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car store</title>
+    <script src="script.js"></script>
+    <script src="server.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <footer>
+        <a href="./customers.html">Customers</a>
+        <a href="./employees.html">Employees</a>
+        <a href="./vehicles.html">Vehicles</a>
+        <a href="./sales.html">Sales</a>
+        <a href="./services.html">Services</a>
+        <a href="./index.html">Main Page</a>
+
+    </footer>
+    <h1>
+        Employees
+    </h1>
+    <div class="employee-table" id="browse">
+        <h3>Employees</h3>
+        <table>
+            <tr>
+                <th><a href="#" onClick="additem()">New</a></th>
+                <th></th>
+                <th>employeeID</th>
+                <th>name</th>
+
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.employeesID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.employeesID')">Remove</a></td>
+                <td>1</td>
+                <td >James John</td>
+
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.employeesID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.employeesID')">Remove</a></td>
+                <td>2</td>
+                <td>Janet Foster</td>
+
+            </tr>
+            <tr>
+                <td><a href="#" onClick="edititem('this.employeesID')">Edit</a></td>
+                <td><a href="#" onclick="deleteitem('this.employeesID')">Remove</a></td>
+                <td>3</td>
+                <td>Jimmy Ham</td>
+
+            </tr>
+        </table>
+        <div id="insert">
+            <form method="POST" id="additem">
+                <legend><strong>Add Employee</strong></legend>
+                  <fieldset class="fields">
+                    <label> Name </label> <input type="text" name="name">
+
+              </fieldset>
+                  <input class="btn" type="submit" id="additem" value="additem" onclick="insertEmployee()">
+                  <input class="btn" type="button" value="cancel" onClick="exitinsert()">
+            </form> 
+        </div><!-- insert -->
+        <p>&nbsp;</p>
+        <div id="update">
+            <form method="POST" id="edititem">
+                <legend><strong>Update Employee</strong></legend>
+                  <fieldset class="fields">
+                  <input type="hidden" name="employeeID" id="updateemployeeID" value="1">
+                  <label> employeeID: </label> <input type= "emplyeeidtxt"name="addr" value="1">
+                    <label> name</label> <input type="text" name="name" value="Jimmy John">
+
+              </fieldset>
+                  <input class="btn" type="submit" id="UpdateSaveEmployee" value="Save Update Employee">
+                  <input class="btn" type="button" value="cancel" onClick="exitupdate()">
+            </form> 
+        </div><!-- update -->
+        <div id="search">
+            <form method="POST" id="edititem">
+                <legend><strong>Search for an Employee by Employee ID</strong></legend>
+                  <fieldset class="fields">
+                  <input type="hidden" name="employeeID" id="searchemployeeID" value="1">
+                  <label> employeeID: </label> <input type="text" name="id" value="1">
+
+              </fieldset>
+                  <input class="btn" type="submit" id="SaerchEmployee" value="Search for Employee">
+                  <input class="btn" type="button" value="cancel">
+            </form> 
+        </div><!-- update -->
+        <p>&nbsp;</p>
+        <div id="remove">
+          <form method="POST" id="deleteitem">
+              <legend><strong>Delete Employee</strong></legend>
+                  <fieldset class="fields">
+                  <p>Are you sure you wish to delete the following?</p>
+                  <input type="hidden" name="employeeID" id="deleteitemID" value="1">
+                  <label><strong>employeeID:</strong></label> 1
+                    <label> <strong>Jimmy Johnny</strong> </label>
+            </fieldset>
+            <input class="btn" type="submit" id="deleteitem" value="Delete Employee">
+            <input class="btn" type="button" value="cancel" onClick="exitremove()">
+          </form> 
+        </div><!-- delete -->
+
+        <div id="assign">
+            <form method="POST" id="assignemployee">
+                <legend><strong>Assign sale to Employee</strong></legend>
+                  <fieldset class="fields">
+                    <input type="hidden" name="vehicleSaleID" id="vehicleSaleID" value="3">
+                    <label> EmployeeSaleID: </label>1
+
+                    <label for="fk_vehicle"> VehicleID </label>
+                    <select name="vehiclesID" id="fk_vehicles">
+                        <option value="">Select a vehicleID</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <label for="fk_sales"> SaleID</label>
+                    <select name="vehiclesID" id="fk_vehicles">
+                        <option value="">Select a saleID</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    <label> SalesPrice</label> <input type="text" name="price" value="35000">
+
+              </fieldset>
+                  <input class="btn" type="submit" id="UpdateSaveCustomerSale" value="Save Customer Sale">
+                  <input class="btn" type="button" value="cancel" onClick="exitassign()">
+            </form> 
+        </div><!-- update -->
+        
+    </div>
+    
+</body>
+</html>

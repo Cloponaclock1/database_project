@@ -168,6 +168,7 @@ app.put('/put-employee-ajax', function(req,res,next){
     let id = data = parseInt(data.employeesID);
 
 
+
 let queryUpdateEmployee = `UPDATE Employees SET employeesName= ? WHERE employeesID = ?`;
 
         // Run the 1st query
@@ -181,7 +182,9 @@ let queryUpdateEmployee = `UPDATE Employees SET employeesName= ? WHERE employees
             {
                 res.send(rows);
             }
-    })});
+    })
+
+});
 
 //VEHICLES
 

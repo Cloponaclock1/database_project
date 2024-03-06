@@ -25,12 +25,13 @@ updatePersonForm.addEventListener("submit", function (e) {
 
 
 
-
     // Put our data we want to send in a javascript object
     let data = {
         name: newNameValue,
         employeesID:inputname,
     }
+
+
 
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
@@ -42,7 +43,7 @@ updatePersonForm.addEventListener("submit", function (e) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 
             // Add the new data to the table
-            updateRow(xhttp.response, inputname);
+            updateRow(xhttp.response, inputname, newNameValue);
 
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
@@ -56,7 +57,10 @@ updatePersonForm.addEventListener("submit", function (e) {
 })
 
 
-function updateRow(data, employeesID){
+function updateRow(data, employeesID, newname){
+    console.log(data);
+
+
     let parsedData = JSON.parse(data);
     let table = document.getElementById("employee-table");
     for (let i = 0, row; row = table.rows[i]; i++) {
@@ -70,7 +74,7 @@ function updateRow(data, employeesID){
             // Get td of homeworld value
             let td = updateRowIndex.getElementsByTagName("td")[1];
             // Reassign homeworld to our value we updated to
-            td.innerHTML = parsedData[0].name; 
+            td.innerHTML = newname; 
        }
     }
 }

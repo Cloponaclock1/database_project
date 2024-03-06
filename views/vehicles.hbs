@@ -1,9 +1,11 @@
 {{!-- Create a table --}}
 
+<script src="./js/delete_vehicle.js"></script>
 
 
+
+<h1>Vehicles</h1>
 <div>
-    <h1>Vehicles</h1>
     <table id="vehicle-table">
 
         {{!-- Header section --}}
@@ -17,6 +19,7 @@
                     {{@key}}
                 </th>
                 {{/each}}
+                <th>Delete</th>
             </tr>
         </thead>
 
@@ -25,11 +28,13 @@
 
             {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
             {{#each data}}
-            <tr>
+            <tr data-value="{{this.vehiclesID}}">
                 <td>{{this.vehiclesID}}</td>
                 <td>{{this.make}}</td>
                 <td>{{this.model}}</td>
                 <td>{{this.year}}</td>
+                <td><button onclick="deleteVehicle({{this.vehiclesID}})">Delete</button></td>
+
             </tr>
             {{/each}}
         </tbody>
@@ -37,7 +42,7 @@
 </div>
 <div id="buttons">
     <button onclick="additem()">Add Vehicle</button>
-    <button onclick="deleteitem()">Remove Vehicle</button>
+    <button onclick="edititem()">Edit Vehicle</button>
 
 </div>
 
@@ -63,5 +68,4 @@
 
 
 <script src="./js/add_vehicle.js"></script>
-
 <script src="/js/script.js"></script>

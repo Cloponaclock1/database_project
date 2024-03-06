@@ -25,7 +25,7 @@ window.onload=function(){
             year: yearValue,
         }
         console.log(data);
-        
+
         // Setup our AJAX request
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", '/add-vehicle-ajax', true);
@@ -55,12 +55,12 @@ window.onload=function(){
 }
 
 // Creates a single row from an Object representing a single record from 
-// bsg_people
+
 addRowToTable = (data) => {
 
     // Get a reference to the current table on the page and clear it out.
     let currentTable = document.getElementById("vehicle-table");
-
+    console.log(data);
     // Get the location where we should insert the new row (end of table)
     let newRowIndex = currentTable.rows.length;
 
@@ -74,6 +74,7 @@ addRowToTable = (data) => {
     let makeCell = document.createElement("TD");
     let modelCell = document.createElement("TD");
     let yearCell = document.createElement("TD");
+    let deleteCell = document.createElement("TD");
 
     // Fill the cells with correct data
     idCell.innerText = newRow.vehiclesID;
@@ -81,12 +82,27 @@ addRowToTable = (data) => {
     modelCell.innerText = newRow.model;
     yearCell.innerText = newRow.year;
 
+    deleteCell = document.createElement("button");
+    deleteCell.innerHTML = "Delete";
+    deleteCell.onclick = function(){
+        deleteVehicle(newRow.vehiclesID);
+    };
+
+
+
+
     // Add the cells to the row 
     row.appendChild(idCell);
     row.appendChild(makeCell);
     row.appendChild(modelCell);
     row.appendChild(yearCell);
-    
+    row.appendChild(deleteCell);
+
+    row.setAttribute('data-value', newRow.vehiclesID);
+
+
+
+
     // Add the row to the table
     currentTable.appendChild(row);
 }

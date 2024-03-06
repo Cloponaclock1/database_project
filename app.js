@@ -208,6 +208,52 @@ app.delete('/delete-employee-ajax/', function(req,res,next){
               }
   })});
 
+
+app.delete('/delete-vehicle-ajax', function(req,res,next){
+    let data = req.body;
+    let vehiclesID = data.id;
+    let deletevehicles = `DELETE FROM Vehicles WHERE vehiclesID = ?`;
+    let deletesales= `DELETE FROM Sales WHERE vehiclesID = ?`;
+
+
+        // Run the 1st query
+        db.pool.query(deletevehicles, [vehiclesID], function(error, rows, fields){
+            if (error) {
+
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+            }
+
+            else
+            {
+                // Run the second query
+                db.pool.query(deletesales, [vehiclesID], function(error, rows, fields) {
+
+                    if (error) {
+                        console.log(error);
+                        res.sendStatus(400);
+                    } else {
+                        res.sendStatus(204);
+                    }
+                })
+            }
+})});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.put('/put-employee-ajax', function(req,res,next){
     let data = req.body;
 

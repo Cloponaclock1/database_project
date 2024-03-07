@@ -241,18 +241,34 @@ app.delete('/delete-vehicle-ajax', function(req,res,next){
 })});
 
 
+app.put('/put-vehicle-ajax', function(req,res,next){
+    let data = req.body;
+    console.log(data);
+    let make = data["make"];
+    let model = data["model"];
+    let year = parseInt(data["year"]);
+    let id = data["vehiclesID"];
 
 
 
+    let queryUpdateVehiclemake = `UPDATE Vehicles SET make= ?, model= ?, year = ? WHERE vehiclesID = ?`;
+        // Run the 1st query
+    db.pool.query(queryUpdateVehiclemake, [make,model, year,id], function(error, rows, fields){
+        if (error) {
 
+            // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+        }else
+        {
+            res.send(rows);
+            console.log(rows);
 
+            
+        }
+})
 
-
-
-
-
-
-
+});
 
 app.put('/put-employee-ajax', function(req,res,next){
     let data = req.body;
@@ -280,11 +296,6 @@ let queryUpdateEmployee = `UPDATE Employees SET employeesName= ? WHERE employees
 });
 
 //VEHICLES
-
-
-
-
-
 
 
 

@@ -65,7 +65,32 @@
 {{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 </div>
 
+<div id="update">
+    <h2>Updating A Vehicle</h2>
+    <p>To update a specific vehicle select thier name on the dropdown box and corrected with the text input box.</p>
+    <form id='update-vehicle-form-ajax'>
+
+        <label for="input-fullname">Full name: </label>
+        <select name="input-fullname" id="mySelect">
+            <option value="test">Select a VehicleID</option>
+            {{#each data}}
+            <option value="{{this.vehiclesID}}">{{this.vehiclesID}} </option>
+            {{/each}}
+        </select>
+
+        <label for="input-make">Make: </label>
+        <input type="text" name="input-make" id="input-make">
+
+        <label for="input-model">Model: </label>
+        <input type="text" name="input-model" id="input-model">
+
+        <label for="input-make">Year: </label>
+        <input type="text" name="input-year" id="input-year">
+        <input type="submit">
+
+    </form>
 
 
 <script src="./js/add_vehicle.js"></script>
 <script src="/js/script.js"></script>
+<script src="./js/update_vehicle.js"></script>

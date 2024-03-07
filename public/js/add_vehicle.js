@@ -50,6 +50,7 @@ window.onload=function(){
 
         // Send the request and wait for the response
         xhttp.send(JSON.stringify(data));
+        
 
     })
 }
@@ -60,7 +61,6 @@ addRowToTable = (data) => {
 
     // Get a reference to the current table on the page and clear it out.
     let currentTable = document.getElementById("vehicle-table");
-    console.log(data);
     // Get the location where we should insert the new row (end of table)
     let newRowIndex = currentTable.rows.length;
 
@@ -105,4 +105,12 @@ addRowToTable = (data) => {
 
     // Add the row to the table
     currentTable.appendChild(row);
+
+
+    let selectMenu = document.getElementById("mySelect");
+    let option = document.createElement("option");
+    option.value = newRow.employeesID;
+    selectMenu.add(option);
+    // End of new step 8 code.
+
 }

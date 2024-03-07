@@ -58,7 +58,6 @@ updatePersonForm.addEventListener("submit", function (e) {
 
 
 function updateRow(data, employeesID, newname){
-    console.log(data);
 
 
     let parsedData = JSON.parse(data);

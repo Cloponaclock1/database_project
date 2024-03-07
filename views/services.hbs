@@ -1,6 +1,6 @@
 <div>
 {{!-- Create a table --}}
-<table>
+<table id="services-table">
 
     {{!-- Header section --}}
     <thead>
@@ -19,7 +19,6 @@
     {{!-- Body section --}}
     <tbody>
 
-        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
         {{#each data}}
         <tr>
             <td>{{this.servicesID}}</td>
@@ -33,3 +32,50 @@
     </tbody>
 </table>
 </div>
+<div id="buttons">
+    <button onclick="additem()">Add Service</button>
+    <button onclick="edititem()">Edit Service</button>
+
+</div>
+
+<div id="insert">
+    {{!-- Form to add a record to the table  --}}
+    <h2>Adding a Vehicle</h2>
+    <p>To add a new vehicle, please enter their information below and click 'Submit'!</p>
+    <form id="add-service-form-ajax">
+        <label for="order">Work Order: </label>
+        <input type="number" name="order" id="order">
+        
+        <label for="service">Service Time: </label>
+        <input type="text" name="service" id="service">
+
+        <label for="team">Service Team: </label>
+        <input type="text" name="team" id="team">
+
+
+
+
+        <label for="v_ID">Vehicle ID: </label>
+        <select name="v_ID" id="mySelect">
+            <option value="test">Select a VehicleID</option>
+            {{#each data}}
+            <option value="{{this.vehiclesID}}">{{this.vehiclesID}} </option>
+            {{/each}}
+        </select>
+        <input type="submit">
+        
+
+
+
+
+
+
+
+
+    </form>
+
+{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+</div>
+
+
+<script src="/js/script.js"></script>

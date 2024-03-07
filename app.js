@@ -47,10 +47,11 @@ app.get('/', function(req, res)
 
 app.get('/services.hbs', function(req, res)
 {
-    let query1 = "SELECT * FROM Services;";
+    let query1 = "SELECT * FROM Services";
     db.pool.query(query1, function(error, rows, fields){
         res.render('services', {data: rows});
     })
+
 });
 
 app.get('/customers.hbs', function(req, res)
@@ -59,6 +60,7 @@ app.get('/customers.hbs', function(req, res)
     db.pool.query(query1, function(error, rows, fields){
         res.render('customers', {data: rows});
     })
+    
 });
 app.get('/employees.hbs', function(req, res)
 {
@@ -74,6 +76,7 @@ app.get('/sales.hbs', function(req, res)
     db.pool.query(query1, function(error, rows, fields){
         res.render('sales', {data: rows});
     })
+
 });
 
 app.get('/vehicles.hbs', function(req, res)

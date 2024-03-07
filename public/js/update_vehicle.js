@@ -2,8 +2,6 @@
 
 
 
-
-
 let updateVehicleForm = document.getElementById('update-vehicle-form-ajax');
 
 // Modify the objects we need

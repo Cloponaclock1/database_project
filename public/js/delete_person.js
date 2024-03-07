@@ -27,7 +27,7 @@ function deleteEmployee(employeesID) {
 
 
 function deleteRow(employeesID){
-
+    location.reload()
     let table = document.getElementById("employee-table");
     for (let i = 0, row; row = table.rows[i]; i++) {
        //iterate through rows

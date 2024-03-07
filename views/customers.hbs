@@ -1,8 +1,6 @@
-
-
+<h1>Customers</h1>
 <div>
-
-    <table>
+    <table id="customers-table">
 
         {{!-- Header section --}}
         <thead>
@@ -15,6 +13,7 @@
                     {{@key}}
                 </th>
                 {{/each}}
+                <th>Delete</th>
             </tr>
         </thead>
 
@@ -23,21 +22,56 @@
 
             {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
             {{#each data}}
-            <tr>
-                <td>{{this.customersID}}</td>
-                <td>{{this.firstName}}</td>
-                <td>{{this.middleName}}</td>
-                <td>{{this.lastName}}</td>
-                <td>{{this.age}}</td>
-                <td>{{this.email}}</td>
-                <td>{{this.phone}}</td>
-                <td>{{this.address}}</td>
-            </tr>
+                <tr data-value="{{this.customersID}}">
+                    <td>{{this.customersID}}</td>
+                    <td>{{this.firstName}}</td>
+                    <td>{{this.middleName}}</td>
+                    <td>{{this.lastName}}</td>
+                    <td>{{this.age}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.phone}}</td>
+                    <td>{{this.address}}</td>
+                </tr>
             {{/each}}
         </tbody>
     </table>
-    <div>
-        <button onclick="additem()">Add Customer</button>
-        <button onclick="edititem()">Edit Customer</button>
-    </div>
 </div>
+<div id="buttons">
+    <button onclick="additem()">Add Customer</button>
+    <button onclick="edititem()">Edit Customer</button>
+
+</div>
+
+
+<div id="insert">
+{{!-- Form to add a record to the table  --}}
+    <h2>Adding a Customer</h2>
+    <p>To add a new customer, please enter their information below and click 'Submit'!</p>
+    <form id="add-customer-form-ajax">
+        <label for="f_name">First Name: </label>
+        <input type="text" name="f_name" id="f_name">
+        
+        <label for="m_name">Middle Name: </label>
+        <input type="text" name="m_name" id="m_name">
+
+        <label for="l_name">Last Name: </label>
+        <input type="text" name="l_name" id="l_name">
+
+        <label for="age">Age: </label>
+        <input type="number" name="age" id="age">
+
+        <label for="email">Email: </label>
+        <input type="text" name="email" id="email">
+
+        <label for="phone">Phone: </label>
+        <input type="text" name="phone" id="phone">
+
+        <label for="address">Address: </label>
+        <input type="text" name="address" id="address">
+
+        <input type="submit">
+    </form>
+</div>
+
+<script src="/js/script.js"></script>
+<script src="./js/add_customer.js"></script>

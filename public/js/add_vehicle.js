@@ -24,7 +24,6 @@ window.onload=function(){
             model: modelValue,
             year: yearValue,
         }
-        console.log(data);
 
         // Setup our AJAX request
         var xhttp = new XMLHttpRequest();

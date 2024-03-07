@@ -31,6 +31,8 @@
                     <td>{{this.email}}</td>
                     <td>{{this.phone}}</td>
                     <td>{{this.address}}</td>
+                    <td><button onclick="deleteCustomer({{this.customersID}})">Delete</button></td>
+
                 </tr>
             {{/each}}
         </tbody>
@@ -75,3 +77,5 @@
 
 <script src="/js/script.js"></script>
 <script src="./js/add_customer.js"></script>
+<script src="./js/delete_customer.js"></script>
+

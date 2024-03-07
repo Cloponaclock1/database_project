@@ -5,3 +5,83 @@ table, th, td {
 #insert, #update, #remove {
 display: none;
 }
+  
+/*  ----- Table ----- */
+table {
+  
+  border:1px solid black;
+  border-collapse:collapse;
+  width:100%;
+  color: black;
+  background-color: var(--grapefruit);
+  padding: 1%;
+}
+table img {
+  width: 90%;  
+  border: 5px solid var(--light-pink);
+  border-radius: 25px;
+  padding: 2%;
+}
+caption {
+  border:1px solid black;
+  color: black;
+  background-color: var(--grapefruit);
+  padding: 2%;
+  margin: 0.5%;
+  
+}
+
+tr th {
+border:1px solid black;
+padding:0;
+color: black;
+background-color: rgb(255, 193, 142);
+}
+tr td {
+border:1px solid black;
+padding:1%;
+color: black;
+background-color: var(--grapefruit);
+}
+
+
+  #staff td:nth-child(1) {
+    width: 5%;
+  }
+
+/*  ----- Form ----- */
+form, label, input, select, button, textarea {
+  font-family: 'Noto', sans-serif;
+
+}
+input[type=text], select {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+input[type=submit] {
+width: 100%;
+background-color: rgb(255, 181, 135);
+color: black;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+input[type=submit]:hover {
+background-color: rgb(255, 156, 74);
+color: white;
+
+}
+
+div {
+border-radius: 5px;
+padding: 15px;
+}

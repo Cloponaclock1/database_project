@@ -48,7 +48,7 @@
 <div id="insert">
     {{!-- Form to add a record to the table  --}}
     <h2>Adding a Vehicle</h2>
-    <p>To add a new vehicle, please enter their information below and click 'Submit'!</p>
+    <p>To add a new service, please enter their information below and click 'Submit'!</p>
     <form id="add-service-form-ajax">
         <label for="order">Work Order: </label>
         <input type="number" name="order" id="order">
@@ -77,18 +77,36 @@
 <div id="update">
     <h2>Updating A Service</h2>
     <p>To update a specific service select thier Id.</p>
+
     <form id='update-service-form-ajax'>
 
-        <label for="input-fullname">Full name: </label>
-        <select name="input-fullname" id="mySelect">
-            <option value="test">Select a Person</option>
-            {{#each data}}
-            <option value="{{this.employeesID}}">{{this.employeesName}} </option>
-            {{/each}}
+        <label for="input_id">Service ID: </label>
+        <select name="input-id" id="inputSelect">
+            <option value="test">Select a Service ID:</option>
+                {{#each data}}
+                <option value="{{this.servicesID}}">{{this.servicesID}} </option>
+                {{/each}}
         </select>
 
-        <label for="input-fullname">Name: </label>
-        <input type="text" name="input-fullname" id="input-fullname">
+        <label for="input-order">Work Order: </label>
+        <input type="text" name="input-order" id="input-order">
+
+        <label for="input-service">Service Time: </label>
+        <input type="text" name="input-service" id="input-service">
+
+        <label for="input-team">Service Team: </label>
+        <input type="text" name="input-team" id="input-team">
+
+        <label for="input_id">Vehicle ID: </label>
+        <select name="input-id" id="vehicleSelect">
+            <option value="test">Select a Vehicle ID:</option>
+                {{#each vehiclesID}}
+                <option value="{{this.vehiclesID}}">{{this.vehiclesID}} </option>
+                {{/each}}
+        </select>
+
+
+
         <input type="submit">
 
     </form>

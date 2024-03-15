@@ -494,10 +494,10 @@ app.put('/put-customer-ajax', function(req,res,next){
     let address = data.address;    
 
   
-    let queryUpdateWorld = `UPDATE Customers SET firstName = ?, middleName= ?, lastName=?, age= ?, email= ?, phone= ?, address= ? WHERE customersID = ?`;
+    let queryUpdate = `UPDATE Customers SET firstName = ?, middleName= ?, lastName=?, age= ?, email= ?, phone= ?, address= ? WHERE customersID = ?`;
   
           // Run the 1st query
-          db.pool.query(queryUpdateWorld, [firstName, middleName, lastName, age, email, phone, address, customersID], function(error, rows, fields){
+          db.pool.query(queryUpdate, [firstName, middleName, lastName, age, email, phone, address, customersID], function(error, rows, fields){
             if (error) {
   
               // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
@@ -516,6 +516,36 @@ app.put('/put-customer-ajax', function(req,res,next){
 
 
 
+app.put('/put-service-ajax', function(req,res,next){
+    let data = req.body;
+  
+    let servicesID = data.serviceID;
+    let workOrder = data.workOrder;
+    let serviceTime = data.serviceTime;
+    let serviceTeam = data.serviceTeam;
+    let vehiclesID = data.vehiclesID;
+
+
+  
+    let queryUpdate = `UPDATE Services SET workOrder = ?, serviceTime= ?, serviceTeam=?, vehiclesID= ? WHERE servicesID = ?`;
+  
+          // Run the 1st query
+          db.pool.query(queryUpdate, [workOrder, serviceTime, serviceTeam, vehiclesID, servicesID], function(error, rows, fields){
+            if (error) {
+  
+              // Log the error to the terminal so we know what went wrong, and send the visitor an HTTP response 400 indicating it was a bad request.
+            console.log(error);
+            res.sendStatus(400);
+            }
+  
+              // If there was no error, we run our second query and return that data so we can use it to update the people's
+              // table on the front-end
+            else
+            {
+                res.send(rows);
+
+            }
+              })});
 
 
 

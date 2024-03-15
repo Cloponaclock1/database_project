@@ -2,15 +2,7 @@ table, th, td {
     border: 1px solid;
 
 }
-#insert{
-  width: 300px;
-}
-#insert, #add-service-form-ajax {
-  display: grid;
-  width: 50%;
-  text-align: center;
-  margin-left : 25%
-}
+
 #insert, #update, #remove {
 display: none;
 }

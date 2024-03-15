@@ -1,41 +1,35 @@
 // Get the objects we need to modify
-
-
-
-let updateVehicleForm = document.getElementById('update-vehicle-form-ajax');
+let addPersonForm = document.getElementById('add-service-form-ajax');
 
 // Modify the objects we need
-updateVehicleForm.addEventListener("submit", function (e) {
-   
+addPersonForm.addEventListener("submit", function (e) {
+    
     // Prevent the form from submitting
     e.preventDefault();
 
     // Get form fields we need to get data from
-    let inputid = document.getElementById("mySelect");
-    let inputmake = document.getElementById("input-make");
-    let inputmodel = document.getElementById("input-model");
-    let inputyear = document.getElementById("input-year");
-
+    let inputOrder = document.getElementById("order");
+    let inputService = document.getElementById("service");
+    let inputTeam = document.getElementById("team");
+    let inputVehicle =  document.getElementById("mySelect");
 
     // Get the values from the form fields
-    let idValue = parseInt(inputid.value);
-    let makeValue = inputmake.value;
-    let modelValue = inputmodel.value;
-    let yearValue = parseInt(inputyear.value);
-
-
+    let orderValue = inputOrder.value;
+    let serviceValue = inputService.value;
+    let teamValue = inputTeam.value;
+    let vehicleValue = inputVehicle.value;
 
     // Put our data we want to send in a javascript object
     let data = {
-        vehiclesID: idValue,
-        make: makeValue,
-        model: modelValue,
-        year: yearValue
+        workOrder: orderValue,
+        serviceTime: serviceValue,
+        serviceTeam: teamValue,
+        vehiclesID: vehicleValue
     }
-    console.log(data);
+    
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
-    xhttp.open("PUT", "/put-vehicle-ajax", true);
+    xhttp.open("POST", "/add-service-ajax", true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
     // Tell our AJAX request how to resolve
@@ -43,7 +37,9 @@ updateVehicleForm.addEventListener("submit", function (e) {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 
             // Add the new data to the table
-            location.reload();
+           location.reload()
+
+
         }
         else if (xhttp.readyState == 4 && xhttp.status != 200) {
             console.log("There was an error with the input.")
@@ -54,9 +50,3 @@ updateVehicleForm.addEventListener("submit", function (e) {
     xhttp.send(JSON.stringify(data));
 
 })
-
-
-function updateRow(data, info){
-    location.reload()
-    
-}

@@ -1,3 +1,7 @@
+
+<script src="/js/script.js"></script>
+
+
 <div>
 {{!-- Create a table --}}
 <table id="services-table">
@@ -13,6 +17,7 @@
                 {{@key}}
             </th>
             {{/each}}
+            <th>delete</th>
         </tr>
     </thead>
 
@@ -26,6 +31,8 @@
             <td>{{this.serviceTime}}</td>
             <td>{{this.serviceTeam}}</td>
             <td>{{this.vehiclesID}}</td>
+            <td><button onclick="deleteService({{this.servicesID}})">Delete</button></td>
+
 
         </tr>
         {{/each}}
@@ -57,25 +64,44 @@
 
         <label for="v_ID">Vehicle ID: </label>
         <select name="v_ID" id="mySelect">
+            
             <option value="test">Select a VehicleID</option>
-            {{#each data}}
+            {{#each vehiclesID}}
             <option value="{{this.vehiclesID}}">{{this.vehiclesID}} </option>
             {{/each}}
         </select>
         <input type="submit">
-        
+    </form>
+</div>
 
+<div id="update">
+    <h2>Updating A Service</h2>
+    <p>To update a specific service select thier Id.</p>
+    <form id='update-service-form-ajax'>
 
+        <label for="input-fullname">Full name: </label>
+        <select name="input-fullname" id="mySelect">
+            <option value="test">Select a Person</option>
+            {{#each data}}
+            <option value="{{this.employeesID}}">{{this.employeesName}} </option>
+            {{/each}}
+        </select>
 
-
-
-
-
+        <label for="input-fullname">Name: </label>
+        <input type="text" name="input-fullname" id="input-fullname">
+        <input type="submit">
 
     </form>
 
-{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
+
+
+
 </div>
 
 
-<script src="/js/script.js"></script>
+
+<script src="./js/delete_service.js"></script>
+
+<script src="./js/update_service.js"></script>
+
+<script src="./js/add_service.js"></script>

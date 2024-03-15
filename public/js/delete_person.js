@@ -14,8 +14,7 @@ function deleteEmployee(employeesID) {
         if (xhttp.readyState == 4 && xhttp.status == 204) {
 
             // Add the new data to the table
-            deleteRow(employeesID);
-
+            location.reload();
         }
         else if (xhttp.readyState == 4 && xhttp.status != 204) {
             console.log("There was an error with the input.")

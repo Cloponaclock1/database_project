@@ -31,8 +31,7 @@ window.onload=function(){
             if (xhttp.readyState == 4 && xhttp.status == 200) {
 
                 // Add the new data to the table
-                addRowToTable(xhttp.response);
-
+                location.reload();
                 // Clear the input fields for another transaction
                 inputName.value = '';
 

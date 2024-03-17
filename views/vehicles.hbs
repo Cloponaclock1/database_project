@@ -25,7 +25,7 @@
         {{!-- Body section --}}
         <tbody>
 
-            {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+            {{!-- For each row, print the refernced data --}}
             {{#each data}}
             <tr data-value="{{this.vehiclesID}}">
                 <td>{{this.vehiclesID}}</td>
@@ -61,10 +61,11 @@
         <input type="submit">
     </form>
 
-{{!-- Embed our javascript to handle the DOM manipulation and AJAX request --}}
 </div>
 
 <div id="update">
+            {{!-- Form to update a record on the table  --}}
+
     <h2>Updating A Vehicle</h2>
     <p>To update a specific vehicle select thier name on the dropdown box and corrected with the text input box.</p>
     <form id='update-vehicle-form-ajax'>

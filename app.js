@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 
-
+// Chosen Port
 PORT = 3211;
 
 // Database
@@ -26,21 +26,21 @@ app.engine('.hbs', exphbs.engine({
 app.set('view engine', '.hbs');
 app.use(express.static("public"));
 
-function get_id() {
+/*function get_id() {
     let query1 = "SELECT * FROM Vehicles";
     db.pool.query(query1, function(error, rows, fields){
         console.log({data:rows});
         return {data:rows};
     })
 }
-
+*/
 
 
 /*
     ROUTES
 */
 
-// gets
+
 app.get('/index.hbs', function(req, res)
 {
     res.render('index.hbs');
@@ -57,7 +57,7 @@ app.get('/services.hbs', function(req, res)
     let query2 = "SELECT vehiclesID FROM Vehicles"
 
 
-
+    // Get the data needed for both the Sevices table and the Vehicles table vehiclesID 
     db.pool.query(query1, function(error, result, fields) {
         if (error) 
          {
@@ -79,6 +79,7 @@ app.get('/services.hbs', function(req, res)
 
 app.get('/customers.hbs', function(req, res)
 {
+    // Get the data from the Customers table
     let query1 = "SELECT * FROM Customers;";
     db.pool.query(query1, function(error, rows, fields){
         res.render('customers', {data: rows});
@@ -87,6 +88,8 @@ app.get('/customers.hbs', function(req, res)
 });
 app.get('/employees.hbs', function(req, res)
 {
+    // Get the data from the Employees table
+
     let query1 = "SELECT * FROM Employees;";
     db.pool.query(query1, function(error, rows, fields){
         res.render('employees', {data: rows});
@@ -95,6 +98,8 @@ app.get('/employees.hbs', function(req, res)
 
 app.get('/sales.hbs', function(req, res)
 {
+    // Get the data from the Sales table
+
     let query1 = "SELECT * FROM Sales;";
     db.pool.query(query1, function(error, rows, fields){
         res.render('sales', {data: rows});
@@ -104,6 +109,7 @@ app.get('/sales.hbs', function(req, res)
 
 app.get('/vehicles.hbs', function(req, res)
 {
+    // Get the data from the Vehicles table
     let query1 = "SELECT * FROM Vehicles;";
     db.pool.query(query1, function(error, rows, fields){
         res.render('vehicles', {data: rows});
@@ -132,7 +138,7 @@ app.post('/add-employee-ajax', function(req, res)
         }
         else
         {
-            // If there was no error, perform a SELECT * on bsg_people
+            // If there was no error, perform a SELECT * on Employees
             query2 = `SELECT * FROM Employees;`;
             db.pool.query(query2, function(error, rows, fields){
 

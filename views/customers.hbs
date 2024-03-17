@@ -1,3 +1,8 @@
+    {{!--   --}}
+
+
+
+
 <h1>Customers</h1>
 <div>
     <table id="customers-table">
@@ -20,7 +25,7 @@
         {{!-- Body section --}}
         <tbody>
 
-            {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+            {{!-- For each row, print each value in order --}}
             {{#each data}}
                 <tr data-value="{{this.customersID}}">
                     <td>{{this.customersID}}</td>
@@ -78,6 +83,8 @@
 </div>
 
 <div id="update">
+    {{!-- Form to update a record on table  --}}
+
     <h2>Updating A Customer</h2>
     <p>To update a specific customer select thier ID on the dropdown box and corrected with the text input box.</p>
     <form id='update-customer-form-ajax'>

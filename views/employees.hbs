@@ -3,7 +3,6 @@
 
 <h1>Employees</h1>
 
-{{!-- The Data from our Database --}}
 
 {{!-- Create a table --}}
 <table id="employee-table">
@@ -24,7 +23,7 @@
     {{!-- Body section --}}
     <tbody>
 
-        {{!-- For each row, print the id, fname, lname, homeworld and age, in order --}}
+        {{!-- For each row, print the corresponding data --}}
         {{#each data}}
         <tr data-value="{{this.employeesID}}"></td>
             <td>{{this.employeesID}}</td>
@@ -39,10 +38,11 @@
     <button onclick="additem()">Add Employee</button>
     <button onclick="edititem()">Edit Employee</button>
 </div>
-<!-- /views/index.hbs -->
 
 
 <div id="insert">
+    <!-- insert table -->
+
     <h2>Add an employee</h2>
     <p>To add a new person, please enter their information below and click `Submit`!</p>
     <form id='add-employee-form-ajax'>
@@ -53,6 +53,8 @@
 </div>
 
 <div id="update">
+        <!-- update table -->
+
     <h2>Updating A Employees Name</h2>
     <p>To update a specific user's name select thier name on the dropdown box and corrected with the text input box.</p>
     <form id='update-employee-form-ajax'>

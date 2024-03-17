@@ -17,7 +17,6 @@ updateCustomerForm.addEventListener("submit", function (e) {
     let phone = document.getElementById("input-phone");
     let address = document.getElementById("input-address");
 
-    console.log(first);
 
 
 

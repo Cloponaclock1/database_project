@@ -1,4 +1,4 @@
-// Get the objects we need to modify
+//code is based on the CS 340 starter code
 window.onload=function(){
     let addVehicleForm = document.getElementById('add-vehicle-form-ajax');
 

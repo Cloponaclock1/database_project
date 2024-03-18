@@ -1,3 +1,6 @@
+//code is based on the CS 340 starter code
+
+
 function deleteEmployee(employeesID) {
     // Put our data we want to send in a javascript object
     let data = {

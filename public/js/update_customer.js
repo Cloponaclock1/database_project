@@ -1,4 +1,4 @@
-// Get the objects we need to modify
+//code is based on the CS 340 starter code
 let updateCustomerForm = document.getElementById('update-customer-form-ajax');
 
 // Modify the objects we need

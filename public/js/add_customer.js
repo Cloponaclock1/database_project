@@ -1,3 +1,7 @@
+//code is based on the CS 340 starter code
+
+
+
 let addPersonForm = document.getElementById('add-customer-form-ajax');
 
 // Modify the objects we need

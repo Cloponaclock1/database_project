@@ -1,6 +1,7 @@
 /*
     SETUP
 */
+//    code is based on the CS 340 starter code
 
 // Express
 var express = require('express');

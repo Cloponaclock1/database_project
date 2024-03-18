@@ -1,3 +1,7 @@
+//code is based on the CS 340 starter code
+
+
+
 let updateServiceForm = document.getElementById('update-service-form-ajax');
 // Modify the objects we need
 updateServiceForm.addEventListener("submit", function (e) {

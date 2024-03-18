@@ -1,3 +1,4 @@
+//code is based on the CS 340 starter code
 
 function deleteVehicle(vehiclesID) {
     // Put our data we want to send in a javascript object
